@@ -6,9 +6,9 @@ import edu.uoc.ds.adt.sequential.QueueArrayImpl;
 
 public class PR0Queue {
 
-    public final int CAPACITY = 10;
+    public final int CAPACITY = 37;
 
-    private Queue<Character> queue;
+    private Queue<Double> queue;
 
     public PR0Queue() {
         newQueue();
@@ -22,16 +22,16 @@ public class PR0Queue {
         StringBuilder sb = new StringBuilder();
         char r;
         while (!queue.isEmpty()) {
-            sb.append(queue.poll()).append(" ");
+            sb.append(queue.poll().toString().replace(".0","")).append(" ");
         }
-        return sb.toString();
+        return sb.toString().replace('.', ',');
     }
 
-    public Queue<Character> getQueue() {
+    public Queue<Double> getQueue() {
         return this.queue;
     }
 
-    public void add(Character c) {
+    public void add(Double c) {
         this.queue.add(c);
     }
 }

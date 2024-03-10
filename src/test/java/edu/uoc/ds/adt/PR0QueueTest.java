@@ -12,9 +12,15 @@ public class PR0QueueTest {
 
 
     private void fillQueue() {
-        for (char c = '0'; c < '9'; c++) {
-            pr0q.add(Character.valueOf(c));
+        //for (char c = '0'; c < '9'; c++) {
+        //    pr0q.add(Character.valueOf(c));
+        //}
 
+        for (int i = 0; i <= 360; i += 10) {
+            double radianAngle = Math.toRadians(i);
+            double trigValue = Math.sin(radianAngle);
+             trigValue=Math.round(trigValue * 1000.0) / 1000.0;
+            pr0q.add( trigValue);
         }
     }
     @Before
@@ -33,11 +39,13 @@ public class PR0QueueTest {
 
     @org.junit.Test
     public void queueTest() {
-        assertEquals(this.pr0q.CAPACITY-1, this.pr0q.getQueue().size());
+        assertEquals(this.pr0q.CAPACITY, this.pr0q.getQueue().size());
 
-        assertEquals(this.pr0q.clearFullQueue(), new String("0 1 2 3 4 5 6 7 8 "));
-
+        //copiat del anunciat
+        assertEquals(new String("0 0,174 0,342 0,5 0,643 0,766 0,866 0,94 0,985 1 0,985 0,94 0,866 0,766 0,643 0,5 0,342 0,174 0 -0,174 -0,342 -0,5 -0,643 -0,766 -0,866 -0,94 -0,985 -1 -0,985 -0,94 -0,866 -0,766 -0,643 -0,5 -0,342 -0,174 0 "), this.pr0q.clearFullQueue());
         assertEquals(0, this.pr0q.getQueue().size());
+        //////////////////////
+
     }
 
 }

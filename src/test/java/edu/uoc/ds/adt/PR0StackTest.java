@@ -11,8 +11,12 @@ public class PR0StackTest {
     PR0Stack pr0q;
 
     private void fillStack() {
-        for (char c = '0'; c < '9'; c++) {
-            pr0q.push(Character.valueOf(c));
+        //canviem el codi del fill antic i posem aquest per emplanar amb valors de funcionsa trigonometriques
+        for (int i = 0; i <= 360; i += 10) {
+            double radianAngle = Math.toRadians(i);
+            double trigValue = Math.sin(radianAngle);
+            trigValue=Math.round(trigValue * 1000.0) / 1000.0;
+            pr0q.push(trigValue);
         }
     }
 
@@ -33,11 +37,8 @@ public class PR0StackTest {
 
     @org.junit.Test
     public void stackTest() {
-
-        assertEquals(this.pr0q.CAPACITY-1, this.pr0q.getStack().size());
-
-        assertEquals(this.pr0q.clearAllStack(), new String("8 7 6 5 4 3 2 1 0 "));
-
+        assertEquals( new String("0 -0,174 -0,342 -0,5 -0,643 -0,766 -0,866 -0,94 -0,985 -1 -0,985 -0,94 -0,866 -0,766 -0,643 -0,5 -0,342 -0,174 0 0,174 0,342 0,5 0,643 0,766 0,866 0,94 0,985 1 0,985 0,94 0,866 0,766 0,643 0,5 0,342 0,174 0 "), this.pr0q.clearAllStack());
         assertEquals(0, this.pr0q.getStack().size());
+
     }
 }
