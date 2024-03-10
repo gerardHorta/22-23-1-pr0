@@ -16,7 +16,7 @@ public class PR0CypherCaesarArray {
                 char base = Character.isLowerCase(originalChars[i]) ? 'a' : 'A';
                 encryptedChars[i] = (char) ((originalChars[i] - base + shift) % 26 + base);
             } else {
-                encryptedChars[i] = originalChars[i]; // Mantenemos los caracteres que no son letras
+                encryptedChars[i] = originalChars[i]; // Mantenim els caracters que no son lletres iguals
             }
         }
 
